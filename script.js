@@ -1,4 +1,4 @@
-const apiKey = 'c1dd64edd9d3de69dbea6a2cf784953d'; // Replace with your API key
+const apiKey = 'c1dd64edd9d3de69dbea6a2cf784953d'; 
 const weatherForm = document.getElementById('weatherForm');
 const locationInput = document.getElementById('locationInput');
 const unitSelect = document.getElementById('unitSelect');
@@ -6,7 +6,11 @@ const weatherInfo = document.getElementById('weatherInfo');
 
 weatherForm.addEventListener('submit', function (event) {
   event.preventDefault();
-  getWeather();
+  try {
+    getWeather();
+  } catch (error) {
+    console.error('Error fetching weather data:', error);
+  }
 });
 
 async function getWeather() {
